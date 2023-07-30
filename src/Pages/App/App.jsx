@@ -6,25 +6,32 @@ import { LogIn } from '../LogIn'
 import { NotFound } from '../NotFound'
 import { Orders } from '../Orders'
 import { SignIn } from '../SignIn'
+import { Navbar } from '../../Components/Navbar'
 import './App.css'
 
-const AppRoutes = () => {
 
+const AppRoutes = () => {
+    let routes = useRoutes([
+        {path: '/', element: <Home/>},
+        {path: '/orders', element: <Orders/>},
+        {path: '/inventory', element: <Inventory/>},
+        {path: '/create-product', element: <CreateProduct/>},
+        {path: '/log-in', element: <LogIn/>},
+        {path: '/sign-in', element: <SignIn/>},
+        {path: '/*', element: <NotFound/>},
+    ])
+
+    return routes;
 }
 
 
 function App() {
-  return (
-    <div className='bg-red-100'>
-      <Home/>
-      <CreateProduct/>
-      <Inventory/>
-      <LogIn/>
-      <NotFound/>
-      <Orders/>
-      <SignIn/>
-    </div>
-  )
+    return (
+        <BrowserRouter>
+            <AppRoutes/>
+            <Navbar/>
+        </BrowserRouter>
+    )
 }
 
 export {App}
