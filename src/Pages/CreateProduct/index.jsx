@@ -1,9 +1,11 @@
-function CreateProduct() {
+import { Layout } from "../../Components/Layout"
+
+const CreateProduct = () => {
     return (
-      <div className='bg-red-100'>
+      <Layout>
         CreateProduct
-      </div>
+      </Layout>
     )
   }
-  
+
   export {CreateProduct}

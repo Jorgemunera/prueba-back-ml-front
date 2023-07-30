@@ -1,4 +1,5 @@
 import {useRoutes, BrowserRouter} from 'react-router-dom'
+import { MarketContextProvider } from '../../Context'
 import { Home } from '../Home'
 import { CreateProduct } from '../CreateProduct'
 import { Inventory } from '../Inventory'
@@ -27,10 +28,12 @@ const AppRoutes = () => {
 
 function App() {
     return (
-        <BrowserRouter>
-            <AppRoutes/>
-            <Navbar/>
-        </BrowserRouter>
+        <MarketContextProvider>
+            <BrowserRouter>
+                <AppRoutes/>
+                <Navbar/>
+            </BrowserRouter>
+        </MarketContextProvider>
     )
 }
 
