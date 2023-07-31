@@ -7,6 +7,7 @@ const LogIn = () => {
   const context = useContext(MarketContext);
   const navigate = useNavigate();
 
+  console.log('context.isLogued------------',context.isLogued)
   // Estado del formulario y mensajes de error
   const [formData, setFormData] = useState({
     email: "",
@@ -23,8 +24,27 @@ const LogIn = () => {
   // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Reiniciar el mensaje de error antes de enviar la solicitud
     setErrorMessage("");
+
+    const getRoleByUser = async (token) => {
+      try {
+        const response = await fetch("http://localhost:3000/api/v1/users/get-role-by-user", {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const role = await response.json();
+          return role;
+        } else {
+          setErrorMessage("Ha ocurrido un error al obtener el rol del usuario.");
+        }
+      } catch (error) {
+        setErrorMessage("Ha ocurrido un error al obtener el rol del usuario.");
+      }
+    };
 
     try {
       const response = await fetch("http://localhost:3000/api/v1/auth/login", {
@@ -42,8 +62,17 @@ const LogIn = () => {
 
       if (response.ok) {
         // Si la autenticación es exitosa, almacenar el token en el contexto
-        context.setToken(data.token);
-        console.log('token: ',context.token)
+        context.setToken(data?.token);
+        console.log('data: ', data)
+
+        context.setIsLogued(true);
+
+        const role = await getRoleByUser(data.token);
+        const includeAdministrator = role.some(role => role.includes("administrador"))
+        if(includeAdministrator){
+          context.showFilterAdmin();
+        }
+
         // Redirigir al usuario a la página de inicio
         navigate("/");
       } else if (response.status === 401) {

@@ -5,7 +5,7 @@ const Card = (data) => {
     const context = useContext(MarketContext);
 
     return (
-        <div className='bg-white cursor-pointer w-52 h-56 bottom-4 rounded-lg'>
+        <div className='bg-white cursor-pointer w-52 h-60 bottom-4 rounded-lg'>
             <figure className="relative mb-4 w-full h-2/3">
                 <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">{data.data.amount}</span>
                 <img className="w-full h-full object-cover rounded-lg" src="https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt={data.data.name} />
