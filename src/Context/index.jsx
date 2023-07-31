@@ -6,7 +6,7 @@ const MarketContextProvider = ({children}) => {
     // estado para cantidad de productos total
     const [items, setItems] = useState([]);
 
-    // productos filtrados
+    // productos filtrados por nombre
     const [filteredItems, setFilteredItems] = useState([]);
 
     // estado para ver el token y saber si esta logueado

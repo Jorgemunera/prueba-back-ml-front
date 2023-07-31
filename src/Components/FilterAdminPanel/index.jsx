@@ -1,12 +1,15 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { MarketContext } from '../../Context'
 import './styles.css'
 
 const FilterAdminPanel = () => {
   const context = useContext(MarketContext);
+  const [checkboxSelected, setCheckboxSelected] = useState(null);
   if (!context.items) {
     return null;
   }
+
+
 
   // Usamos reduce para contar la cantidad de veces que aparece cada userId
   const userIdCounts = context.items.reduce((acc, item) => {
@@ -22,7 +25,13 @@ const FilterAdminPanel = () => {
       <div className="checkbox-list space-y-2">
         {Object.entries(userIdCounts).map(([userId, count]) => (
           <label key={userId} className="flex items-center">
-            <input type="checkbox" value={userId} className="mr-2" />
+            <input
+              type="checkbox"
+              value={userId}
+              className="mr-2"
+              onChange={(event) => console.log(event.target.value)}
+              key={userId}
+            />
             User {userId}
           </label>
         ))}

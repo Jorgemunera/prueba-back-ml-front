@@ -45,7 +45,8 @@ const Home = () => {
         type="text"
         placeholder='Search a product'
         className='rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none'
-        onChange={(event) => context.setSearchByName(event.target.value)} />
+        onChange={(event) => context.setSearchByName(event.target.value)}
+      />
       <div className="grid gap-4 gap-y-12 gap-x-4 grid-cols-4 max-w-screen-lg">
         {renderView()}
       </div>

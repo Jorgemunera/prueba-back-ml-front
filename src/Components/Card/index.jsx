@@ -3,14 +3,15 @@ import { MarketContext } from "../../Context"
 
 const Card = (data) => {
   const context = useContext(MarketContext);
-  const [errorMessage, setErrorMessage] = useState(""); // Estado para controlar el mensaje de error
+  // Estado para controlar el mensaje de error
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleClick = async (event) => {
-    event.preventDefault(); // Evita comportamientos por defecto del evento
-    console.log("context.isLogued--------", context.isLogued)
+    event.preventDefault();
+
     if (context.isLogued) {
-      const token = context.token; // Aquí asume que el token se encuentra en el contexto
-      const productId = data.data.id; // El productId necesario para la petición
+      const token = context.token;
+      const productId = data.data.id;
 
       try {
         const response = await fetch("http://localhost:3000/api/v1/orders/add-item", {
