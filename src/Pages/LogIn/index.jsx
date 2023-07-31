@@ -67,7 +67,7 @@ const LogIn = () => {
 
         const role = await getRoleByUser(data.token);
         const includeAdministrator = role.some(role => role.includes("administrador"))
-        if(includeAdministrator){
+        if (includeAdministrator) {
           context.showFilterAdmin();
         }
 

@@ -5,13 +5,13 @@ const CardMessage = () => {
   return (
     <Layout>
       <div className="flex flex-col items-center">
-          <button className="px-4 py-2 bg-red-500 text-white rounded-md shadow-md">
-            <NavLink
-              to='/'
-            >
-              Comprar
-            </NavLink>
-          </button>
+        <button className="px-4 py-2 bg-red-500 text-white rounded-md shadow-md">
+          <NavLink
+            to='/'
+          >
+            Comprar
+          </NavLink>
+        </button>
         <img
           src="https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt="Card Image"

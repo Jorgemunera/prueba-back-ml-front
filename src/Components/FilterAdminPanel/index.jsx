@@ -9,9 +9,7 @@ const FilterAdminPanel = () => {
     return null;
   }
 
-
-
-  // Usamos reduce para contar la cantidad de veces que aparece cada userId
+  // se usa reduce para contar la cantidad de veces que aparece cada userId
   const userIdCounts = context.items.reduce((acc, item) => {
     acc[item.userId] = (acc[item.userId] || 0) + 1;
     return acc;

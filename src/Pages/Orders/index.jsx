@@ -17,9 +17,7 @@ const Orders = () => {
   }, [context.isLogued]);
 
   useEffect(() => {
-    // Verificamos si el token está disponible en el contexto
     if (context.token) {
-      // Configuramos la petición con el token bearer
       fetch(`http://localhost:3000/api/v1/orders/user`, {
         method: "GET",
         headers: {
@@ -27,7 +25,7 @@ const Orders = () => {
         }
       })
         .then(response => {
-          if(response.status === 404){
+          if (response.status === 404) {
             setIsResponseNotFound(true);
           }
           if (!response.ok) {
@@ -36,17 +34,17 @@ const Orders = () => {
           return response.json();
         })
         .then(data => {
-          context.setProductsComprados(data)})
+          context.setProductsComprados(data)
+        })
         .catch(error => {
           console.error("Error fetching data:", error);
-          // Aquí puedes manejar el error de acuerdo a tus necesidades
         });
     }
   }, [context.isLogued])
 
-  if(!context.isLogued){
+  if (!context.isLogued) {
     return (
-      <CardMessage/>
+      <CardMessage />
     )
   }
   return (

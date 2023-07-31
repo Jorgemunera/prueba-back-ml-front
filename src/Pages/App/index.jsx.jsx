@@ -1,4 +1,4 @@
-import {useRoutes, BrowserRouter} from 'react-router-dom'
+import { useRoutes, BrowserRouter } from 'react-router-dom'
 import { MarketContextProvider } from '../../Context'
 import { Home } from '../Home'
 import { CreateProduct } from '../CreateProduct'
@@ -12,29 +12,29 @@ import './App.css'
 
 
 const AppRoutes = () => {
-    let routes = useRoutes([
-        {path: '/', element: <Home/>},
-        {path: '/orders', element: <Orders/>},
-        {path: '/inventory', element: <Inventory/>},
-        {path: '/create-product', element: <CreateProduct/>},
-        {path: '/log-in', element: <LogIn/>},
-        {path: '/sign-in', element: <SignIn/>},
-        {path: '/*', element: <NotFound/>},
-    ])
+  let routes = useRoutes([
+    { path: '/', element: <Home /> },
+    { path: '/orders', element: <Orders /> },
+    { path: '/inventory', element: <Inventory /> },
+    { path: '/create-product', element: <CreateProduct /> },
+    { path: '/log-in', element: <LogIn /> },
+    { path: '/sign-in', element: <SignIn /> },
+    { path: '/*', element: <NotFound /> },
+  ])
 
-    return routes;
+  return routes;
 }
 
 
 function App() {
-    return (
-        <MarketContextProvider>
-            <BrowserRouter>
-                <AppRoutes/>
-                <Navbar/>
-            </BrowserRouter>
-        </MarketContextProvider>
-    )
+  return (
+    <MarketContextProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+      </BrowserRouter>
+    </MarketContextProvider>
+  )
 }
 
-export {App}
+export { App }

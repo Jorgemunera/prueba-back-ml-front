@@ -7,8 +7,8 @@ import { FilterAdminPanel } from "../../Components/FilterAdminPanel"
 const Home = () => {
   const context = useContext(MarketContext);
   const renderView = () => {
-    if(context.searchByName?.length > 0){
-      if(context.filteredItems?.length > 0){
+    if (context.searchByName?.length > 0) {
+      if (context.filteredItems?.length > 0) {
         return (context.filteredItems?.map((item) => (
           <Card
             data={item}

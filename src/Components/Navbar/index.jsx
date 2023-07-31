@@ -26,23 +26,23 @@ const Navbar = () => {
           </NavLink>
         </li>
         {!context.isAdministrator &&
-        <li>
-          <NavLink
-            to='/orders'
-            className={({ isActive }) => isActive ? activeStyle : undefined}
-          >
-            Orders
-          </NavLink>
-        </li>}
+          <li>
+            <NavLink
+              to='/orders'
+              className={({ isActive }) => isActive ? activeStyle : undefined}
+            >
+              Orders
+            </NavLink>
+          </li>}
         {!context.isAdministrator &&
-        <li>
-          <NavLink
-            to='/inventory'
-            className={({ isActive }) => isActive ? activeStyle : undefined}
-          >
-            Inventory
-          </NavLink>
-        </li>}
+          <li>
+            <NavLink
+              to='/inventory'
+              className={({ isActive }) => isActive ? activeStyle : undefined}
+            >
+              Inventory
+            </NavLink>
+          </li>}
       </ul>
       <ul className='flex items-center gap-4'>
         <li>
