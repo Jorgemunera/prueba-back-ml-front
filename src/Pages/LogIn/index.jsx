@@ -7,7 +7,6 @@ const LogIn = () => {
   const context = useContext(MarketContext);
   const navigate = useNavigate();
 
-  console.log('context.isLogued------------',context.isLogued)
   // Estado del formulario y mensajes de error
   const [formData, setFormData] = useState({
     email: "",
@@ -63,7 +62,6 @@ const LogIn = () => {
       if (response.ok) {
         // Si la autenticación es exitosa, almacenar el token en el contexto
         context.setToken(data?.token);
-        console.log('data: ', data)
 
         context.setIsLogued(true);
 

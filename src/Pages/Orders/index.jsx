@@ -27,7 +27,6 @@ const Orders = () => {
         }
       })
         .then(response => {
-          console.log("response---------", response)
           if(response.status === 404){
             setIsResponseNotFound(true);
           }
@@ -37,7 +36,6 @@ const Orders = () => {
           return response.json();
         })
         .then(data => {
-          console.log("data---------", data)
           context.setProductsComprados(data)})
         .catch(error => {
           console.error("Error fetching data:", error);
@@ -46,6 +44,11 @@ const Orders = () => {
     }
   }, [context.isLogued])
 
+  if(!context.isLogued){
+    return (
+      <CardMessage/>
+    )
+  }
   return (
     <Layout>
       {showCardMessage && isResponseNotFound && <CardMessage />}
@@ -63,8 +66,3 @@ const Orders = () => {
 
 export { Orders }
 
-
-{/*
-        si el usuario no se ha logueado entonces debe mostrar un pagina diciendo inicie sesion para poder comprar productos, mostrar boton de iniciar sesion o registrar
-        si si esta logueado entonces no mostrar nada (la cantidad de productos que tiene)
-        */}
