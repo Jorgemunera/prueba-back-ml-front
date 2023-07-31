@@ -31,7 +31,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/v1/products')
+    fetch('https://api-ml.fly.dev/api/v1/products')
       .then(response => response.json())
       .then(data => context.setItems(data))
   }, [])

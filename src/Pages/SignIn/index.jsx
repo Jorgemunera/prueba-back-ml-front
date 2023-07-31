@@ -30,7 +30,7 @@ const SignIn = () => {
       setErrorMessage("Las contraseñas no coinciden");
     } else {
       try {
-        const response = await fetch("http://localhost:3000/api/v1/users", {
+        const response = await fetch("https://api-ml.fly.dev/api/v1/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

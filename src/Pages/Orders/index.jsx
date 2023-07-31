@@ -18,7 +18,7 @@ const Orders = () => {
 
   useEffect(() => {
     if (context.token) {
-      fetch(`http://localhost:3000/api/v1/orders/user`, {
+      fetch(`https://api-ml.fly.dev/api/v1/orders/user`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${context.token}`

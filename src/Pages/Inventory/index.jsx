@@ -19,7 +19,7 @@ const Inventory = () => {
 
   useEffect(() => {
     if (context.token) {
-      fetch(`http://localhost:3000/api/v1/products/user-id`, {
+      fetch(`https://api-ml.fly.dev/api/v1/products/user-id`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${context.token}`

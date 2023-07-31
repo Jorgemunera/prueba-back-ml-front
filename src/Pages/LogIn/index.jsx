@@ -27,7 +27,7 @@ const LogIn = () => {
 
     const getRoleByUser = async (token) => {
       try {
-        const response = await fetch("http://localhost:3000/api/v1/users/get-role-by-user", {
+        const response = await fetch("https://api-ml.fly.dev/api/v1/users/get-role-by-user", {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${token}`,
@@ -46,7 +46,7 @@ const LogIn = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/api/v1/auth/login", {
+      const response = await fetch("https://api-ml.fly.dev/api/v1/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

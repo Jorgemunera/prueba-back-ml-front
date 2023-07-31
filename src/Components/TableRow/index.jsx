@@ -13,7 +13,7 @@ const TableRow = ({ data }) => {
       const productId = data.id;
 
       try {
-        const response = await fetch("http://localhost:3000/api/v1/orders/add-item", {
+        const response = await fetch("https://api-ml.fly.dev/api/v1/orders/add-item", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
